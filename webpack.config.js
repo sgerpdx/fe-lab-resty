@@ -22,7 +22,7 @@ module.exports = {
     publicPath: '/',
   },
   devServer: {
-    port: 7891,
+    port: 7894,
     historyApiFallback: true,
   },
   plugins: [
@@ -35,6 +35,14 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      path: require.resolve('path-browserify'),
+      http: require.resolve('stream-http'),
+      crypto: require.resolve('crypto-browserify'),
+      zlib: require.resolve('browserify-zlib'),
+      assert: require.resolve('assert/'),
+    },
   },
   module: {
     rules: [
