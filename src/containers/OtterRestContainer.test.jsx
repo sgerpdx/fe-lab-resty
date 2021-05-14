@@ -12,6 +12,11 @@ describe('API utility container file', () => {
     const input = await screen.findByLabelText('URL');
     userEvent.type(input, 'Jim');
 
+    const goSubmit = await screen.findByRole('button', {
+      name: 'send-req',
+    });
+    userEvent.click(goSubmit);
+
     // return waitFor(() => {
     //   const newURL = screen.getByText('Jim', { exact: true });
     //   expect(newURL).toHaveLength(3);

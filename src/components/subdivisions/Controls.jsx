@@ -27,7 +27,7 @@ export default function Controls(props) {
           <input type="radio" name="Method" value="DELETE" />
           <img src="../../../assets/otter-DELETE.png" className="methodImg" />
         </label>
-        <input type="submit" value="Submit" aria-label="send-req" />
+        <input type="submit" value="Go!" aria-label="send-req" />
       </form>
     </nav>
   );

@@ -16,7 +16,7 @@ export default class OtterRestContainer extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     this.setState({ reqURL: e.target.value });
-    alert('You have entered the URL ' + this.state.reqURL);
+    //alert('You have entered the URL ' + this.state.reqURL);
   };
 
   render() {
