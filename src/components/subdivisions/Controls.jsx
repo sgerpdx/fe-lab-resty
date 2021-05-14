@@ -1,8 +1,9 @@
 import React from 'react';
+import { styles } from './Controls.css';
 
 export default function Controls(props) {
   return (
-    <nav>
+    <nav className="formArea">
       <form onSubmit={props.handleSubmit}>
         <label htmlFor="req-url">URL</label>
         <input
@@ -27,6 +28,9 @@ export default function Controls(props) {
           <input type="radio" name="Method" value="DELETE" />
           <img src="../../../assets/otter-DELETE.png" className="methodImg" />
         </label>
+        <textarea id="jsonBox" name="jsonEntry" rows="8" cols="50">
+          Raw JSON Here
+        </textarea>
         <input type="submit" value="Go!" aria-label="send-req" />
       </form>
     </nav>

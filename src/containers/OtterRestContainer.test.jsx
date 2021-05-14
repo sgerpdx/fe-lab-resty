@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, getByText, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import OtterRestContainer from './OtterRestContainer';
 import userEvent from '@testing-library/user-event';
 
@@ -12,14 +12,16 @@ describe('API utility container file', () => {
     const input = await screen.findByLabelText('URL');
     userEvent.type(input, 'Jim');
 
+    // const methodChoice = await screen.findByRole('radio', { name: 'Method' });
+    // fireEvent.change(methodChoice, { target: { value: 'PUT' } });
+    // expect(methodChoice.value).toBe('PUT');
+
     const goSubmit = await screen.findByRole('button', {
       name: 'send-req',
     });
     userEvent.click(goSubmit);
 
-    // return waitFor(() => {
-    //   const newURL = screen.getByText('Jim', { exact: true });
-    //   expect(newURL).toHaveLength(3);
-    // });
+    // const enterJson = await screen.findByRole('textbox', { name: 'jsonEntry' });
+    // userEvent.type(enterJson, `{ query: 'Scotland'}`);
   });
 });
