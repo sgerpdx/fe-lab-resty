@@ -5,5 +5,7 @@ import OtterRestContainer from './OtterRestContainer';
 describe('API utility container file', () => {
   it('displays what it is supposed to display', async () => {
     render(<OtterRestContainer />);
+
+    screen.getByText('Loading...');
   });
 });

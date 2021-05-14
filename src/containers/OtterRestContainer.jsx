@@ -4,6 +4,7 @@ import Controls from '../components/subdivisions/Controls';
 export default class OtterRestContainer extends Component {
   state = {
     urlText: 'James',
+    loading: true,
   };
 
   handleTextChange = (e) => {
@@ -13,6 +14,11 @@ export default class OtterRestContainer extends Component {
 
   render() {
     console.log(this.state.urlText);
+
+    // const { loading } = this.state;
+
+    // if (loading) return <h3>Loading...</h3>;
+
     return (
       <div>
         <nav>
