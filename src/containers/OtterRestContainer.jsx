@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Controls from '../components/subdivisions/Controls';
+import Response from '../components/subdivisions/Response';
+import History from '../components/subdivisions/History';
 
 export default class OtterRestContainer extends Component {
   state = {
     urlText: 'James',
     loading: true,
     reqURL: '',
+    jsonRes: [],
   };
 
   handleTextChange = (e) => {
@@ -29,11 +32,13 @@ export default class OtterRestContainer extends Component {
     return (
       <div>
         <nav>
+          <History />
           <Controls
             currentValue={this.state.urlText}
             handleChange={this.handleTextChange}
             handleSubmit={this.handleFormSubmit}
           />
+          <Response res={this.state.jsonRes} />
         </nav>
       </div>
     );
