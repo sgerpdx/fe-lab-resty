@@ -5,11 +5,18 @@ export default class OtterRestContainer extends Component {
   state = {
     urlText: 'James',
     loading: true,
+    reqURL: '',
   };
 
   handleTextChange = (e) => {
     //e.preventDefault();
     this.setState({ urlText: e.target.value });
+  };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ reqURL: e.target.value });
+    alert('You have entered the URL ' + this.state.reqURL);
   };
 
   render() {
@@ -25,6 +32,7 @@ export default class OtterRestContainer extends Component {
           <Controls
             currentValue={this.state.urlText}
             handleChange={this.handleTextChange}
+            handleSubmit={this.handleFormSubmit}
           />
         </nav>
       </div>
