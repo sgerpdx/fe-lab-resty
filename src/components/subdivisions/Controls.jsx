@@ -5,7 +5,7 @@ export default function Controls({
   handleSubmit,
   currentValue,
   handleChange,
-  jsonText,
+  handleClick,
 }) {
   return (
     <nav className="formArea">
@@ -28,6 +28,7 @@ export default function Controls({
               type="radio"
               name="getMethod"
               value="GET"
+              onChange={handleClick}
             />
             <img
               src="../../../assets/otter-GET.png"
@@ -36,7 +37,13 @@ export default function Controls({
             />
           </label>
           <label className="httpMethods">
-            <input role="radio" type="radio" name="Method" value="POST" />
+            <input
+              aria-label="Method"
+              type="radio"
+              name="Method"
+              value="POST"
+              onChange={handleClick}
+            />
             <img
               src="../../../assets/otter-POST.png"
               className="methodImg"
@@ -44,7 +51,13 @@ export default function Controls({
             />
           </label>
           <label className="httpMethods">
-            <input role="radio" type="radio" name="Method" value="PUT" />
+            <input
+              aria-label="Method"
+              type="radio"
+              name="Method"
+              value="PUT"
+              onChange={handleClick}
+            />
             <img
               src="../../../assets/otter-PUT.png"
               className="methodImg"
@@ -52,7 +65,13 @@ export default function Controls({
             />
           </label>
           <label className="httpMethods">
-            <input role="radio" type="radio" name="Method" value="DELETE" />
+            <input
+              aria-label="Method"
+              type="radio"
+              name="Method"
+              value="DELETE"
+              onChange={handleClick}
+            />
             <img
               src="../../../assets/otter-DELETE.png"
               className="methodImg"
@@ -72,7 +91,7 @@ export default function Controls({
           aria-label="JSON Input"
           rows="8"
           cols="50"
-          defaultValue="Enter JSON Here"
+          placeholder="Enter JSON Here"
         ></textarea>
       </form>
     </nav>

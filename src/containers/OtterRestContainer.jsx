@@ -7,12 +7,12 @@ import { getPlanets } from '../services/API';
 const URL = 'https://lit-shore-34578.herokuapp.com';
 export default class OtterRestContainer extends Component {
   state = {
-    urlText: 'James',
+    urlText: '',
     loading: true,
     reqURL: '',
     jsonRes: [],
-    jsonHolder: 'Raw JSON Here',
-    selectedOption: 'GET',
+    methodSelection: '',
+    jsonHolder: '',
   };
 
   handleTextChange = (e) => {
@@ -20,11 +20,13 @@ export default class OtterRestContainer extends Component {
     this.setState({ urlText: e.target.value });
   };
 
-  onValueChange(e) {
+  handleValueChange = (e) => {
+    console.log('///etv', e.target.value);
+
     this.setState({
-      selectedOption: e.target.value,
+      methodSelection: e.target.value,
     });
-  }
+  };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
@@ -33,20 +35,19 @@ export default class OtterRestContainer extends Component {
   };
 
   render() {
-    console.log(this.state.urlText);
+    console.log('///option', this.state.methodSelection);
     // const { loading } = this.state;
 
     // if (loading) return <h3>Loading...</h3>;
 
     return (
       <div>
-        <History />
+        {/* <History /> */}
         <Controls
-          jsonText={this.state.jsonHolder}
           currentValue={this.state.urlText}
           handleChange={this.handleTextChange}
           handleSubmit={this.handleFormSubmit}
-          checked={this.state}
+          handleClick={this.handleValueChange}
         />
         <Response res={this.state.jsonRes} />
       </div>

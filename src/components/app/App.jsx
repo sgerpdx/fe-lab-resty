@@ -6,7 +6,7 @@ import OtterRestContainer from '../../containers/OtterRestContainer';
 export default function App() {
   return (
     <div>
-      <p className="titleBar">hey</p>
+      <h2 className="titleBar">Innput at Otter REST</h2>
       <OtterRestContainer />
     </div>
   );
