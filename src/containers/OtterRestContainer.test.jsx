@@ -4,7 +4,7 @@ import OtterRestContainer from './OtterRestContainer';
 import userEvent from '@testing-library/user-event';
 
 describe('API utility container file', () => {
-  it('displays what it is supposed to display', async () => {
+  it('displays the controls component form elements', async () => {
     render(<OtterRestContainer />);
 
     // screen.getByText('Loading...');
@@ -12,16 +12,19 @@ describe('API utility container file', () => {
     const input = await screen.findByLabelText('URL');
     userEvent.type(input, 'Jim');
 
-    // const methodChoice = await screen.findByRole('radio', { name: 'Method' });
-    // fireEvent.change(methodChoice, { target: { value: 'PUT' } });
-    // expect(methodChoice.value).toBe('PUT');
+    const methodChoice = await screen.findByRole('radio', {
+      name: 'Method',
+    });
+    //console.log('method////////////', methodChoice);
+    expect(methodChoice.value).toBe('GET');
 
     const goSubmit = await screen.findByRole('button', {
       name: 'send-req',
     });
     userEvent.click(goSubmit);
 
-    // const enterJson = await screen.findByRole('textbox', { name: 'jsonEntry' });
-    // userEvent.type(enterJson, `{ query: 'Scotland'}`);
+    await screen.findByRole('textbox', {
+      name: 'JSON Input',
+    });
   });
 });

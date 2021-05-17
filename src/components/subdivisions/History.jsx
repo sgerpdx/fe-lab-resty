@@ -9,9 +9,8 @@ export default function History(props) {
         id="historyBox"
         name="historyDisplay"
         cols="50"
-      >
-        History
-      </textarea>
+        defaultValue="History"
+      ></textarea>
     </nav>
   );
 }

@@ -1,23 +1,34 @@
 import React from 'react';
 import { styles } from './Controls.css';
 
-export default function Controls(props) {
+export default function Controls({
+  handleSubmit,
+  currentValue,
+  handleChange,
+  jsonText,
+}) {
   return (
     <nav className="formArea">
-      <form className="formControl" onSubmit={props.handleSubmit}>
+      <form className="formControl" onSubmit={handleSubmit}>
         <label className="inputURL" htmlFor="req-url">
           URL{' '}
           <input
             id="req-url"
             type="text"
-            value={props.currentValue}
-            onChange={props.handleChange}
+            value={currentValue}
+            onChange={handleChange}
           />
         </label>
-        <nav className="radioMethod">
+        <section role="radiogroup" className="radioMethod">
           {' '}
           <label className="httpMethods">
-            <input type="radio" name="Method" value="GET" />
+            <span>get</span>
+            <input
+              aria-label="Method"
+              type="radio"
+              name="getMethod"
+              value="GET"
+            />
             <img
               src="../../../assets/otter-GET.png"
               className="methodImg"
@@ -25,7 +36,7 @@ export default function Controls(props) {
             />
           </label>
           <label className="httpMethods">
-            <input type="radio" name="Method" value="POST" />
+            <input role="radio" type="radio" name="Method" value="POST" />
             <img
               src="../../../assets/otter-POST.png"
               className="methodImg"
@@ -33,7 +44,7 @@ export default function Controls(props) {
             />
           </label>
           <label className="httpMethods">
-            <input type="radio" name="Method" value="PUT" />
+            <input role="radio" type="radio" name="Method" value="PUT" />
             <img
               src="../../../assets/otter-PUT.png"
               className="methodImg"
@@ -41,14 +52,14 @@ export default function Controls(props) {
             />
           </label>
           <label className="httpMethods">
-            <input type="radio" name="Method" value="DELETE" />
+            <input role="radio" type="radio" name="Method" value="DELETE" />
             <img
               src="../../../assets/otter-DELETE.png"
               className="methodImg"
               width="70"
             />
           </label>
-        </nav>
+        </section>
         <input
           className="submitForm"
           type="submit"
@@ -58,12 +69,11 @@ export default function Controls(props) {
         <textarea
           className="inputJSON"
           id="jsonBox"
-          name="jsonEntry"
+          aria-label="JSON Input"
           rows="8"
           cols="50"
-        >
-          Raw JSON Here
-        </textarea>
+          defaultValue="Enter JSON Here"
+        ></textarea>
       </form>
     </nav>
   );
