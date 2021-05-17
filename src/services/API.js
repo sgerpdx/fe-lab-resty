@@ -3,10 +3,10 @@
 const URL = 'https://lit-shore-34578.herokuapp.com';
 
 export const getPlanets = async (URL) => {
-  const res = await fetch(`${URL}/planets`);
-  const planets = await res.json();
+  const res = await fetch(`${URL}`);
+  const data = await res.json();
 
-  return planets;
+  return data;
 };
 
 //following the MDN docs, but may not need all this info:

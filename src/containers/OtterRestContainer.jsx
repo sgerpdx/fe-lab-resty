@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Controls from '../components/subdivisions/Controls';
 import Response from '../components/subdivisions/Response';
-import History from '../components/subdivisions/History';
+//import History from '../components/subdivisions/History';
 import { getPlanets } from '../services/API';
 
-const URL = 'https://lit-shore-34578.herokuapp.com';
+//const URL = 'https://lit-shore-34578.herokuapp.com/planets';
 export default class OtterRestContainer extends Component {
   state = {
-    urlText: '',
+    urlText: 'https://lit-shore-34578.herokuapp.com/planets',
     loading: true,
-    reqURL: '',
     jsonRes: [],
     methodSelection: '',
     jsonHolder: '',
@@ -28,14 +27,15 @@ export default class OtterRestContainer extends Component {
     });
   };
 
-  handleFormSubmit = (e) => {
+  handleFormSubmit = async (e) => {
     e.preventDefault();
-    this.setState({ reqURL: e.target.value });
-    console.log(this.state.selectedOption);
+    const returnedJson = await getPlanets(this.state.urlText);
+    console.log(returnedJson);
+    this.setState({ jsonRes: returnedJson });
   };
 
   render() {
-    console.log('///option', this.state.methodSelection);
+    console.log('///option', this.state.jsonRes);
     // const { loading } = this.state;
 
     // if (loading) return <h3>Loading...</h3>;
@@ -49,7 +49,7 @@ export default class OtterRestContainer extends Component {
           handleSubmit={this.handleFormSubmit}
           handleClick={this.handleValueChange}
         />
-        <Response res={this.state.jsonRes} />
+        <Response handleChange={this.state.jsonRes} />
       </div>
     );
   }

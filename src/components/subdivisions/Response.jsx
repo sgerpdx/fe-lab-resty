@@ -9,8 +9,10 @@ export default function Response(props) {
         id="resBox"
         name="resDisplay"
         cols="50"
-        defaultValue="Res Displays Here"
-      ></textarea>
+        placeholder="JSON Res Here"
+      >
+        {props.res}
+      </textarea>
     </nav>
   );
 }
