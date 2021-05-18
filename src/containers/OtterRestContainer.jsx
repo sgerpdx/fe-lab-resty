@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import Controls from '../components/subdivisions/Controls';
 import Response from '../components/subdivisions/Response';
-//import History from '../components/subdivisions/History';
+import History from '../components/subdivisions/History';
 import {
   getPlanets,
   postPlanet,
   updatePlanet,
   deletePlanet,
 } from '../services/API';
-
-//const URL = 'https://lit-shore-34578.herokuapp.com/planets';
 export default class OtterRestContainer extends Component {
   state = {
     urlText: 'https://lit-shore-34578.herokuapp.com/planets',
@@ -25,15 +23,12 @@ export default class OtterRestContainer extends Component {
   };
 
   handleValueChange = (e) => {
-    console.log('///etv', e.target.value);
-
     this.setState({
       methodSelection: e.target.value,
     });
   };
 
   handleJsonReq = (e) => {
-    console.log('STARRRRR', e.target.value);
     this.setState({ reqJson: e.target.value });
   };
 
@@ -78,7 +73,7 @@ export default class OtterRestContainer extends Component {
 
     return (
       <div>
-        {/* <History /> */}
+        <History method={this.state.methodSelection} url={this.state.urlText} />
         <Controls
           currentValue={this.state.urlText}
           handleChange={this.handleTextChange}

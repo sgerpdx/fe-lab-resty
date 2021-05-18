@@ -1,5 +1,3 @@
-//require('dotenv').config();
-
 const URL = 'https://lit-shore-34578.herokuapp.com';
 
 export const getPlanets = async (URL) => {
@@ -9,11 +7,7 @@ export const getPlanets = async (URL) => {
   return data;
 };
 
-//following the MDN docs, but may not need all this info:
-//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 export const postPlanet = async (URL, newPlanet) => {
-  console.log('NEWPLANET', newPlanet);
-  console.log(typeof newPlanet);
   const res = await fetch(`${URL}`, {
     method: 'POST',
     headers: {
@@ -21,8 +15,6 @@ export const postPlanet = async (URL, newPlanet) => {
     },
     body: newPlanet,
   });
-  // console.log('RES', res);
-  // console.log(typeof res);
   return res.json();
 };
 
@@ -47,6 +39,7 @@ export const deletePlanet = async (URL, planetId) => {
   return res.json();
 };
 
+// data model for new or updated planet JSON:
 // {
 //   "planet": "Zorgland",
 //   "planet_type": "terrestrial",
