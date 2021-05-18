@@ -15,6 +15,7 @@ export default class OtterRestContainer extends Component {
     jsonRes: [],
     methodSelection: '',
     reqJson: null,
+    reqHistory: [],
   };
 
   handleTextChange = (e) => {
@@ -34,6 +35,7 @@ export default class OtterRestContainer extends Component {
 
   handleFormSubmit = async (e) => {
     e.preventDefault();
+    this.historyUpdate();
     if (this.state.methodSelection === 'GET') {
       const returnedJson = await getPlanets(this.state.urlText);
       this.setState({ jsonRes: returnedJson });
@@ -65,15 +67,32 @@ export default class OtterRestContainer extends Component {
     }
   };
 
+  historyUpdate = () => {
+    const newReqItem = {
+      method: this.state.methodSelection,
+      url: this.state.urlText,
+    };
+    console.log('///newReqItem', newReqItem);
+    const temporaryHistory = this.state.reqHistory;
+    const newReqHistory = [...temporaryHistory, newReqItem];
+    console.log('>>>newReqHistory', newReqHistory);
+    console.log('typeof reqHistory:', typeof newReqHistory);
+
+    this.setState({
+      reqHistory: newReqHistory,
+    });
+    console.log('reqHistory:', this.state.reqHistory);
+  };
+
   render() {
-    console.log('///option', this.state.jsonRes);
+    console.log('reqHistory in render:', this.state.reqHistory);
     // const { loading } = this.state;
 
     // if (loading) return <h3>Loading...</h3>;
 
     return (
       <div>
-        <History method={this.state.methodSelection} url={this.state.urlText} />
+        <History reqHistory={this.state.reqHistory} />
         <Controls
           currentValue={this.state.urlText}
           handleChange={this.handleTextChange}
