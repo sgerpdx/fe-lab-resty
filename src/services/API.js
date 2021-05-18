@@ -21,8 +21,19 @@ export const postPlanet = async (URL, newPlanet) => {
     },
     body: newPlanet,
   });
-  console.log('RES', res);
-  console.log(typeof res);
+  // console.log('RES', res);
+  // console.log(typeof res);
+  return res.json();
+};
+
+export const updatePlanet = async (URL, planetId, alteredPlanet) => {
+  const res = await fetch(`${URL}/${planetId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: alteredPlanet,
+  });
   return res.json();
 };
 

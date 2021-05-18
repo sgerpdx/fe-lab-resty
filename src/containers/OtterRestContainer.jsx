@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Controls from '../components/subdivisions/Controls';
 import Response from '../components/subdivisions/Response';
 //import History from '../components/subdivisions/History';
-import { getPlanets, postPlanet } from '../services/API';
+import { getPlanets, postPlanet, updatePlanet } from '../services/API';
 
 //const URL = 'https://lit-shore-34578.herokuapp.com/planets';
 export default class OtterRestContainer extends Component {
@@ -36,7 +36,6 @@ export default class OtterRestContainer extends Component {
     e.preventDefault();
     if (this.state.methodSelection === 'GET') {
       const returnedJson = await getPlanets(this.state.urlText);
-      console.log('|||returned JSON', returnedJson);
       this.setState({ jsonRes: returnedJson });
     }
     if (this.state.methodSelection === 'POST') {
@@ -44,7 +43,17 @@ export default class OtterRestContainer extends Component {
         this.state.urlText,
         this.state.reqJson
       );
-      console.log('|||returned JSON', returnedJson);
+      this.setState({ jsonRes: returnedJson });
+    }
+    if (this.state.methodSelection === 'PUT') {
+      const URL = this.state.urlText;
+      const baseURL = URL.slice(0, 45);
+      const planetId = URL.slice(46, 47);
+      const returnedJson = await updatePlanet(
+        baseURL,
+        planetId,
+        this.state.reqJson
+      );
       this.setState({ jsonRes: returnedJson });
     }
   };
