@@ -30,7 +30,7 @@ export default class OtterRestContainer extends Component {
   handleFormSubmit = async (e) => {
     e.preventDefault();
     const returnedJson = await getPlanets(this.state.urlText);
-    console.log(returnedJson);
+    console.log('|||returned JSON', returnedJson);
     this.setState({ jsonRes: returnedJson });
   };
 
@@ -49,7 +49,7 @@ export default class OtterRestContainer extends Component {
           handleSubmit={this.handleFormSubmit}
           handleClick={this.handleValueChange}
         />
-        <Response handleChange={this.state.jsonRes} />
+        <Response res={this.state.jsonRes} />
       </div>
     );
   }

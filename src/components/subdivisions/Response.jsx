@@ -1,7 +1,8 @@
 import React from 'react';
-import { styles } from './Response.css';
+//import { styles } from './Response.css';
 
 export default function Response(props) {
+  const displayRes = JSON.stringify(props.res);
   return (
     <nav className="resArea">
       <textarea
@@ -10,9 +11,8 @@ export default function Response(props) {
         name="resDisplay"
         cols="50"
         placeholder="JSON Res Here"
-      >
-        {props.res}
-      </textarea>
+        value={displayRes}
+      ></textarea>
     </nav>
   );
 }
