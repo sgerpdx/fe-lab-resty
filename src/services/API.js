@@ -37,6 +37,16 @@ export const updatePlanet = async (URL, planetId, alteredPlanet) => {
   return res.json();
 };
 
+export const deletePlanet = async (URL, planetId) => {
+  const res = await fetch(`${URL}/${planetId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
+  return res.json();
+};
+
 // {
 //   "planet": "Zorgland",
 //   "planet_type": "terrestrial",

@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import Controls from '../components/subdivisions/Controls';
 import Response from '../components/subdivisions/Response';
 //import History from '../components/subdivisions/History';
-import { getPlanets, postPlanet, updatePlanet } from '../services/API';
+import {
+  getPlanets,
+  postPlanet,
+  updatePlanet,
+  deletePlanet,
+} from '../services/API';
 
 //const URL = 'https://lit-shore-34578.herokuapp.com/planets';
 export default class OtterRestContainer extends Component {
@@ -54,6 +59,13 @@ export default class OtterRestContainer extends Component {
         planetId,
         this.state.reqJson
       );
+      this.setState({ jsonRes: returnedJson });
+    }
+    if (this.state.methodSelection === 'DELETE') {
+      const URL = this.state.urlText;
+      const baseURL = URL.slice(0, 45);
+      const planetId = URL.slice(46, 47);
+      const returnedJson = await deletePlanet(baseURL, planetId);
       this.setState({ jsonRes: returnedJson });
     }
   };
