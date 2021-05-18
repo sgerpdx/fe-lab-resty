@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Controls from '../components/subdivisions/Controls';
 import Response from '../components/subdivisions/Response';
 //import History from '../components/subdivisions/History';
-import { getPlanets } from '../services/API';
+import { getPlanets, postPlanet } from '../services/API';
 
 //const URL = 'https://lit-shore-34578.herokuapp.com/planets';
 export default class OtterRestContainer extends Component {
@@ -11,7 +11,7 @@ export default class OtterRestContainer extends Component {
     loading: true,
     jsonRes: [],
     methodSelection: '',
-    jsonHolder: '',
+    reqJson: null,
   };
 
   handleTextChange = (e) => {
@@ -27,11 +27,26 @@ export default class OtterRestContainer extends Component {
     });
   };
 
+  handleJsonReq = (e) => {
+    console.log('STARRRRR', e.target.value);
+    this.setState({ reqJson: e.target.value });
+  };
+
   handleFormSubmit = async (e) => {
     e.preventDefault();
-    const returnedJson = await getPlanets(this.state.urlText);
-    console.log('|||returned JSON', returnedJson);
-    this.setState({ jsonRes: returnedJson });
+    if (this.state.methodSelection === 'GET') {
+      const returnedJson = await getPlanets(this.state.urlText);
+      console.log('|||returned JSON', returnedJson);
+      this.setState({ jsonRes: returnedJson });
+    }
+    if (this.state.methodSelection === 'POST') {
+      const returnedJson = await postPlanet(
+        this.state.urlText,
+        this.state.reqJson
+      );
+      console.log('|||returned JSON', returnedJson);
+      this.setState({ jsonRes: returnedJson });
+    }
   };
 
   render() {
@@ -48,6 +63,7 @@ export default class OtterRestContainer extends Component {
           handleChange={this.handleTextChange}
           handleSubmit={this.handleFormSubmit}
           handleClick={this.handleValueChange}
+          onChange={this.handleJsonReq}
         />
         <Response res={this.state.jsonRes} />
       </div>

@@ -6,6 +6,7 @@ export default function Controls({
   currentValue,
   handleChange,
   handleClick,
+  onChange,
 }) {
   return (
     <nav className="formArea">
@@ -91,7 +92,16 @@ export default function Controls({
           aria-label="JSON Input"
           rows="8"
           cols="50"
-          placeholder="Enter JSON Here"
+          placeholder="Edit the object for POST/PUT and then delete this sentence (type_id = 1 or 2):
+          {
+            planet: 'name',
+            diameter: 0,
+            gravity: '0.0',
+            magnetic_field_strong: false,
+            owner_id: 1,
+            type_id: 1
+        }"
+          onChange={onChange}
         ></textarea>
       </form>
     </nav>

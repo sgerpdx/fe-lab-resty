@@ -9,6 +9,7 @@ export default function Response(props) {
         className="displayJSON"
         id="resBox"
         name="resDisplay"
+        rows="20"
         cols="50"
         placeholder="JSON Res Here"
         value={displayRes}
