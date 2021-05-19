@@ -1,0 +1,30 @@
+.formArea {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputURL {
+  width: 100%;
+  background-color: skyblue;
+  margin-bottom: 4px;
+}
+
+/* input[type='radio'] {
+  display: none;
+} */
+
+.radioMethod {
+  display: flex;
+  flex-direction: column;
+}

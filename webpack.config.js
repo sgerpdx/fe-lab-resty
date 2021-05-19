@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+//require('dotenv').config();
 const webpack = require('webpack');
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
@@ -22,7 +23,7 @@ module.exports = {
     publicPath: '/',
   },
   devServer: {
-    port: 7891,
+    port: 7893,
     historyApiFallback: true,
   },
   plugins: [
@@ -35,6 +36,15 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      path: require.resolve('path-browserify'),
+      http: require.resolve('stream-http'),
+      crypto: require.resolve('crypto-browserify'),
+      zlib: require.resolve('browserify-zlib'),
+      assert: require.resolve('assert/'),
+      fs: false,
+    },
   },
   module: {
     rules: [
@@ -84,6 +94,18 @@ module.exports = {
           options: { limit: 1000 },
         },
       },
+      // {
+      //   test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         name: '[name].[ext]',
+      //         outputPath: 'fonts/',
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
 };
