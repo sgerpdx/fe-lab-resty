@@ -9,14 +9,28 @@ describe('API utility container file', () => {
 
     // screen.getByText('Loading...');
 
-    const input = await screen.findByLabelText('URL');
+    const input = await screen.findByLabelText('URL:');
     userEvent.type(input, 'Jim');
 
-    const methodChoice = await screen.findByRole('radio', {
-      name: 'Method',
+    const methodChoiceGet = await screen.findByRole('radio', {
+      name: 'Get Method',
     });
-    //console.log('method////////////', methodChoice);
-    expect(methodChoice.value).toBe('GET');
+    expect(methodChoiceGet.value).toBe('GET');
+
+    const methodChoicePost = await screen.findByRole('radio', {
+      name: 'Post Method',
+    });
+    expect(methodChoicePost.value).toBe('POST');
+
+    const methodChoicePut = await screen.findByRole('radio', {
+      name: 'Put Method',
+    });
+    expect(methodChoicePut.value).toBe('PUT');
+
+    const methodChoiceDelete = await screen.findByRole('radio', {
+      name: 'Delete Method',
+    });
+    expect(methodChoiceDelete.value).toBe('DELETE');
 
     const goSubmit = await screen.findByRole('button', {
       name: 'send-req',

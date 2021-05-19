@@ -8,8 +8,8 @@
 } */
 
 .mainArea {
-  background-color: white;
-  color: rgb(3, 104, 53);
+  background-color: rgb(3, 104, 53);
+  color: white;
   display: grid;
   grid-template-rows: 60px 80vh;
 }
@@ -22,7 +22,7 @@
 }
 
 .containerArea {
-  background-color: white;
+  background-color: rgb(154, 196, 175);
   color: black;
   display: grid;
   grid-template-columns: 1fr 1fr;

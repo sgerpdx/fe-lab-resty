@@ -11,9 +11,9 @@ export default function Controls({
   return (
     <nav className="formArea">
       <form className="formControl" onSubmit={handleSubmit}>
-        <p>Enter API Request URL:</p>
+        <p>Enter API Request Info:</p>
         <label className="inputURL" htmlFor="req-url">
-          {' '}
+          URL:{' '}
           <input
             id="req-url"
             type="text"
@@ -28,7 +28,7 @@ export default function Controls({
           <label className="httpMethods">
             <span>get</span>
             <input
-              aria-label="Method"
+              aria-label="Get Method"
               type="radio"
               name="getMethod"
               value="GET"
@@ -42,7 +42,7 @@ export default function Controls({
           </label>
           <label className="httpMethods">
             <input
-              aria-label="Method"
+              aria-label="Post Method"
               type="radio"
               name="Method"
               value="POST"
@@ -56,7 +56,7 @@ export default function Controls({
           </label>
           <label className="httpMethods">
             <input
-              aria-label="Method"
+              aria-label="Put Method"
               type="radio"
               name="Method"
               value="PUT"
@@ -70,7 +70,7 @@ export default function Controls({
           </label>
           <label className="httpMethods">
             <input
-              aria-label="Method"
+              aria-label="Delete Method"
               type="radio"
               name="Method"
               value="DELETE"
