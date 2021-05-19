@@ -11,17 +11,20 @@ export default function Controls({
   return (
     <nav className="formArea">
       <form className="formControl" onSubmit={handleSubmit}>
+        <p>Enter API Request URL:</p>
         <label className="inputURL" htmlFor="req-url">
-          URL{' '}
+          {' '}
           <input
             id="req-url"
             type="text"
+            size="48"
             value={currentValue}
             onChange={handleChange}
           />
         </label>
         <section role="radiogroup" className="radioMethod">
           {' '}
+          <p>Choose HTTP Method:</p>
           <label className="httpMethods">
             <span>get</span>
             <input
@@ -80,12 +83,7 @@ export default function Controls({
             />
           </label>
         </section>
-        <input
-          className="submitForm"
-          type="submit"
-          value="Go!"
-          aria-label="send-req"
-        />
+        <p>Optional Raw JSON Input:</p>
         <textarea
           className="inputJSON"
           id="jsonBox"
@@ -103,6 +101,13 @@ export default function Controls({
         }"
           onChange={onChange}
         ></textarea>
+        <p>💼</p>
+        <input
+          className="submitForm"
+          type="submit"
+          value="Send"
+          aria-label="send-req"
+        />
       </form>
     </nav>
   );

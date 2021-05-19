@@ -1,5 +1,5 @@
 import React from 'react';
-//import { styles } from './History.css';
+import styles from '../app/App.css';
 
 export default function History(props) {
   //let reqHistory = [];
@@ -7,13 +7,14 @@ export default function History(props) {
   //eqHistory.push(reqItem);
   const currentHistory = JSON.stringify(props.reqHistory);
   return (
-    <nav className="historyArea">
+    <nav className={styles.historyArea}>
+      <p>🕑 Request History</p>
       <textarea
-        className="displayHistory"
+        className={styles.displayHistory}
         id="historyBox"
         name="historyDisplay"
         cols="50"
-        rows="4"
+        rows="16"
         placeholder="History"
         value={currentHistory}
       ></textarea>

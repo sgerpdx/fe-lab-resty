@@ -8,6 +8,7 @@ import {
   updatePlanet,
   deletePlanet,
 } from '../services/API';
+import styles from '../components/app/App.css';
 export default class OtterRestContainer extends Component {
   state = {
     urlText: 'https://lit-shore-34578.herokuapp.com/planets',
@@ -91,16 +92,20 @@ export default class OtterRestContainer extends Component {
     // if (loading) return <h3>Loading...</h3>;
 
     return (
-      <div>
-        <History reqHistory={this.state.reqHistory} />
-        <Controls
-          currentValue={this.state.urlText}
-          handleChange={this.handleTextChange}
-          handleSubmit={this.handleFormSubmit}
-          handleClick={this.handleValueChange}
-          onChange={this.handleJsonReq}
-        />
-        <Response res={this.state.jsonRes} />
+      <div className={styles.containerArea}>
+        <section className={styles.contLeft}>
+          <History reqHistory={this.state.reqHistory} />
+        </section>
+        <section className={styles.contRight}>
+          <Controls
+            currentValue={this.state.urlText}
+            handleChange={this.handleTextChange}
+            handleSubmit={this.handleFormSubmit}
+            handleClick={this.handleValueChange}
+            onChange={this.handleJsonReq}
+          />
+          <Response res={this.state.jsonRes} />
+        </section>
       </div>
     );
   }

@@ -1,12 +1,13 @@
 import React from 'react';
-//import { styles } from './Response.css';
+import styles from '../app/App.css';
 
 export default function Response(props) {
   const displayRes = JSON.stringify(props.res);
   return (
-    <nav className="resArea">
+    <nav className={styles.resArea}>
+      <p>API Response:</p>
       <textarea
-        className="displayJSON"
+        className={styles.displayJSON}
         id="resBox"
         name="resDisplay"
         rows="20"

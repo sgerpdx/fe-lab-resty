@@ -6,3 +6,48 @@
 .titleBar {
   font-family: Magnilda;
 } */
+
+.mainArea {
+  background-color: white;
+  color: rgb(3, 104, 53);
+  display: grid;
+  grid-template-rows: 60px 80vh;
+}
+
+.titleBar {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* border-bottom: solid 1px rgb(3, 104, 53); */
+}
+
+.containerArea {
+  background-color: white;
+  color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.contLeft,
+.contRight {
+  padding: 20px;
+}
+
+.historyArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-end;
+  margin-right: 40px;
+}
+
+.displayHistory {
+  background-color: rgb(244, 244, 244);
+  width: 360px;
+}
+
+.displayJSON {
+  background-color: rgb(244, 244, 244);
+}
