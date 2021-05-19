@@ -17,6 +17,7 @@
 .inputURL {
   width: 100%;
   background-color: skyblue;
+  margin-bottom: 4px;
 }
 
 input[type='radio'] {

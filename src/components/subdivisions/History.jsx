@@ -17,7 +17,7 @@ export default function History(props) {
         cols="50"
         rows="16"
         placeholder="History"
-        defaultValue={currentHistory}
+        value={currentHistory}
       ></textarea>
     </nav>
   );

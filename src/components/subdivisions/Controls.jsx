@@ -24,7 +24,7 @@ export default function Controls({
         </label>
         <section role="radiogroup" className="radioMethod">
           {' '}
-          <p>Choose HTTP Method:</p>
+          <p>Method:</p>
           <label className="httpMethods">
             <input
               aria-label="Get Method"
@@ -82,22 +82,13 @@ export default function Controls({
             />
           </label>
         </section>
-        <p>Optional Raw JSON Input:</p>
         <textarea
           className="inputJSON"
           id="jsonBox"
           aria-label="JSON Input"
           rows="8"
           cols="50"
-          placeholder="Edit the object for POST/PUT and then delete this sentence (type_id = 1 or 2):
-          {
-            planet: 'name',
-            diameter: 0,
-            gravity: '0.0',
-            magnetic_field_strong: false,
-            owner_id: 1,
-            type_id: 1
-        }"
+          placeholder="Input optional Raw JSON here for POST/PUT requests"
           onChange={onChange}
         ></textarea>
         <p>💼</p>

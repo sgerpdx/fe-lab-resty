@@ -82,7 +82,7 @@ export default class OtterRestContainer extends Component {
   };
 
   render() {
-    //console.log('reqHistory in render:', this.state.reqHistory);
+    console.log('methodSelection:', this.state.methodSelection);
     // const { loading } = this.state;
 
     // if (loading) return <h3>Loading...</h3>;
