@@ -11,6 +11,7 @@ export default function History(props) {
       <p>🕑 Request History</p>
       <textarea
         className={styles.displayHistory}
+        aria-label="History Display"
         id="historyBox"
         name="historyDisplay"
         cols="50"

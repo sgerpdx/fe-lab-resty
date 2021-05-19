@@ -4,7 +4,7 @@ import OtterRestContainer from './OtterRestContainer';
 import userEvent from '@testing-library/user-event';
 
 describe('API utility container file', () => {
-  it('displays the controls component form elements', async () => {
+  it('displays the Controls component form elements', async () => {
     render(<OtterRestContainer />);
 
     // screen.getByText('Loading...');
@@ -40,5 +40,25 @@ describe('API utility container file', () => {
     await screen.findByRole('textbox', {
       name: 'JSON Input',
     });
+  });
+
+  it('displays the History component', async () => {
+    render(<OtterRestContainer />);
+
+    await screen.findByRole('textbox', {
+      name: 'History Display',
+    });
+
+    //mock will show a GET request
+  });
+
+  it('displays the Response component', async () => {
+    render(<OtterRestContainer />);
+
+    await screen.findByRole('textbox', {
+      name: 'Res Display',
+    });
+
+    //mock will show a GET response
   });
 });

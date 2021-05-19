@@ -8,6 +8,7 @@ export default function Response(props) {
       <p>API Response:</p>
       <textarea
         className={styles.displayJSON}
+        aria-label="Res Display"
         id="resBox"
         name="resDisplay"
         rows="20"

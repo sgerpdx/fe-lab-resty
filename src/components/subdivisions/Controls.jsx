@@ -26,7 +26,6 @@ export default function Controls({
           {' '}
           <p>Choose HTTP Method:</p>
           <label className="httpMethods">
-            <span>get</span>
             <input
               aria-label="Get Method"
               type="radio"
