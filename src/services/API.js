@@ -8,7 +8,7 @@ export const getPlanets = async (URL) => {
 };
 
 export const postPlanet = async (URL, newPlanet) => {
-  const res = await fetch(`${URL}`, {
+  const res = await fetch(URL, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
@@ -18,8 +18,10 @@ export const postPlanet = async (URL, newPlanet) => {
   return res.json();
 };
 
-export const updatePlanet = async (URL, planetId, alteredPlanet) => {
-  const res = await fetch(`${URL}/${planetId}`, {
+export const updatePlanet = async (URL, alteredPlanet) => {
+  console.log('///AP', alteredPlanet);
+  console.log('TYPE', typeof alteredPlanet);
+  const res = await fetch(URL, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json',
@@ -29,8 +31,8 @@ export const updatePlanet = async (URL, planetId, alteredPlanet) => {
   return res.json();
 };
 
-export const deletePlanet = async (URL, planetId) => {
-  const res = await fetch(`${URL}/${planetId}`, {
+export const deletePlanet = async (URL) => {
+  const res = await fetch(URL, {
     method: 'DELETE',
     headers: {
       'Content-type': 'application/json',

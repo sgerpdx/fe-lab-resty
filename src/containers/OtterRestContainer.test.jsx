@@ -66,11 +66,20 @@ describe('API utility container file', () => {
       name: 'History Display',
     });
 
-    // return waitFor(() => {
-    //   screen.getByText(
-    //     `[{"method":"GET","url":"https://lit-shore-34578.herokuapp.com/planets"}]`
-    //   );
-    // });u
+    // const input = await screen.findByLabelText('URL:');
+    // userEvent.type(input, 'https://lit-shore-34578.herokuapp.com/planets');
+
+    const goSubmit = await screen.findByRole('button', {
+      name: 'send-req',
+    });
+    userEvent.click(goSubmit);
+
+    return waitFor(() => {
+      screen.getByText(
+        `[{"method":"GET","url":"https://lit-shore-34578.herokuapp.com/planets"}]`,
+        { exact: false }
+      );
+    });
   });
 
   it('displays the Response component', async () => {

@@ -14,7 +14,7 @@ export default class OtterRestContainer extends Component {
     urlText: 'https://lit-shore-34578.herokuapp.com/planets',
     loading: true,
     jsonRes: [],
-    methodSelection: '',
+    methodSelection: 'GET',
     reqJson: null,
     reqHistory: [],
   };
@@ -50,20 +50,12 @@ export default class OtterRestContainer extends Component {
     }
     if (this.state.methodSelection === 'PUT') {
       const URL = this.state.urlText;
-      const baseURL = URL.slice(0, 45);
-      const planetId = URL.slice(46, 47);
-      const returnedJson = await updatePlanet(
-        baseURL,
-        planetId,
-        this.state.reqJson
-      );
+      const returnedJson = await updatePlanet(URL, this.state.reqJson);
       this.setState({ jsonRes: returnedJson });
     }
     if (this.state.methodSelection === 'DELETE') {
       const URL = this.state.urlText;
-      const baseURL = URL.slice(0, 45);
-      const planetId = URL.slice(46, 47);
-      const returnedJson = await deletePlanet(baseURL, planetId);
+      const returnedJson = await deletePlanet(URL);
       this.setState({ jsonRes: returnedJson });
     }
   };

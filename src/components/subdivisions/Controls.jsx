@@ -29,7 +29,7 @@ export default function Controls({
             <input
               aria-label="Get Method"
               type="radio"
-              name="getMethod"
+              name="Method"
               value="GET"
               onChange={handleClick}
             />
