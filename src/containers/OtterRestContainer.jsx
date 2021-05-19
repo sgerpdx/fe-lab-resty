@@ -73,20 +73,16 @@ export default class OtterRestContainer extends Component {
       method: this.state.methodSelection,
       url: this.state.urlText,
     };
-    console.log('///newReqItem', newReqItem);
     const temporaryHistory = this.state.reqHistory;
     const newReqHistory = [...temporaryHistory, newReqItem];
-    console.log('>>>newReqHistory', newReqHistory);
-    console.log('typeof reqHistory:', typeof newReqHistory);
 
     this.setState({
       reqHistory: newReqHistory,
     });
-    console.log('reqHistory:', this.state.reqHistory);
   };
 
   render() {
-    console.log('reqHistory in render:', this.state.reqHistory);
+    //console.log('reqHistory in render:', this.state.reqHistory);
     // const { loading } = this.state;
 
     // if (loading) return <h3>Loading...</h3>;

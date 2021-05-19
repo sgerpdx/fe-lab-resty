@@ -1,0 +1,62 @@
+[
+  {
+    "id": 3,
+    "planet": "futureEarth",
+    "planet_type": "terrestrial",
+    "diameter": 14407,
+    "gravity": "1.3",
+    "magnetic_field_strong": true,
+    "owner_id": 1,
+    "type_id": 1
+  },
+  {
+    "id": 7,
+    "planet": "Zorgland",
+    "planet_type": "terrestrial",
+    "diameter": 38,
+    "gravity": "1.3",
+    "magnetic_field_strong": true,
+    "owner_id": 1,
+    "type_id": 1
+  },
+  {
+    "id": 2,
+    "planet": "venus",
+    "planet_type": "terrestrial",
+    "diameter": 12102,
+    "gravity": "0.9",
+    "magnetic_field_strong": false,
+    "owner_id": 1,
+    "type_id": 1
+  },
+  {
+    "id": 1,
+    "planet": "mercury",
+    "planet_type": "terrestrial",
+    "diameter": 4880,
+    "gravity": "0.4",
+    "magnetic_field_strong": false,
+    "owner_id": 1,
+    "type_id": 1
+  },
+  {
+    "id": 6,
+    "planet": "saturn",
+    "planet_type": "gaseous",
+    "diameter": 116464,
+    "gravity": "1.1",
+    "magnetic_field_strong": true,
+    "owner_id": 1,
+    "type_id": 2
+  },
+  {
+    "id": 5,
+    "planet": "jupiter",
+    "planet_type": "gaseous",
+    "diameter": 139822,
+    "gravity": "2.5",
+    "magnetic_field_strong": true,
+    "owner_id": 1,
+    "type_id": 2
+  }
+]

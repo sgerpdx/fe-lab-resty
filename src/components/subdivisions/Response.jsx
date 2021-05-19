@@ -14,7 +14,7 @@ export default function Response(props) {
         rows="20"
         cols="50"
         placeholder="JSON Res Here"
-        value={displayRes}
+        defaultValue={displayRes}
       ></textarea>
     </nav>
   );

@@ -104,7 +104,7 @@ export default function Controls({
         <input
           className="submitForm"
           type="submit"
-          value="Send"
+          defaultValue="Send"
           aria-label="send-req"
         />
       </form>
